@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Cartão de Crédito</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="logo.ico">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle" data-icon="🌙"></button>
+    <div class="container">
+        <header>
+            <h1>Validador de Cartão de Crédito</h1>
+            <p>Identifique a bandeira e valide seu cartão</p>
+        </header>
+
+        <main>
+            <section class="card-input-section">
+                <form id="cardForm" class="card-form">
+                    <div class="form-group">
+                        <label for="cardNumber">Número do Cartão</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="cardNumber" 
+                                placeholder="0000 0000 0000 0000"
+                                maxlength="23"
+                                inputmode="numeric"
+                                required
+                            >
+                            <span id="bandeira" class="bandeira-logo"></span>
+                        </div>
+                        <span id="cardError" class="error-message"></span>
+                    </div>
+
+                    <button type="submit" class="btn-validate">Validar Cartão</button>
+                </form>
+            </section>
+
+            <section id="resultSection" class="result-section hidden">
+                <div id="resultContent" class="result-content">
+                    <div id="resultStatus" class="result-status"></div>
+                    <div id="resultDetails" class="result-details"></div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Sobre a Validação</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Bandeiras Suportadas</h3>
+                        <p>O validador reconhece as seguintes bandeiras baseando-se nos padrões internacionais de IIN:</p>
+                        <ul class="info-list">
+                            <li><strong>Visa:</strong> Prefixo 4 (inclui Electron com 4026, 4405, etc).</li>
+                            <li><strong>Mastercard:</strong> Séries 51-55 ou 2221-2720.</li>
+                            <li><strong>Elo:</strong> Prefixos 4011, 4389, 4514, 5041, 5067, 5090 ou 6362-6363.</li>
+                            <li><strong>American Express:</strong> Começa com 34 ou 37.</li>
+                            <li><strong>Hipercard:</strong> Padrão exclusivo 606282.</li>
+                            <li><strong>Diners Club:</strong> Prefixos 300-305, 36 ou 38.</li>
+                            <li><strong>Outras:</strong> Discover, JCB, Maestro, Solo, Switch e Laser.</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Identificação por Prefixo</h3>
+                        <p>O sistema identifica a bandeira analisando os dígitos iniciais (IIN - Issuer Identification Number):</p>
+                        <ul class="info-list">
+                            <li><strong>Visa:</strong> Prefixo 4.</li>
+                            <li><strong>Mastercard:</strong> 51-55 ou série 2221-2720.</li>
+                            <li><strong>Elo:</strong> Prefixos como 4011, 4389, 5041, 5067, 6362 ou 6363.</li>
+                            <li><strong>Amex:</strong> 34 ou 37 (15 dígitos).</li>
+                            <li><strong>Hipercard:</strong> Prefixo 606282.</li>
+                            <li><strong>Maestro:</strong> 5018, 5020, 6304, entre outros.</li>
+                            <li><strong>Diners:</strong> 300-305, 36 ou 38.</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Segurança</h3>
+                        <p>Esta aplicação funciona <strong>100% no navegador</strong>. Nenhum dado é enviado a servidores externos.</p>
+                        <p>Nunca compartilhe dados reais de cartão em ambientes não confiáveis.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Números para Teste</h3>
+                        <p>Utilize estes números fictícios para testar a detecção de bandeiras e o algoritmo:</p>
+                        <ul class="info-list">
+                            <li><strong>Visa:</strong> 4111 1111 1111 1111</li>
+                            <li><strong>Mastercard:</strong> 5555 5555 5555 4444</li>
+                            <li><strong>American Express:</strong> 3782 822463 10005</li>
+                            <li><strong>Elo:</strong> 6363 6800 0000 0000</li>
+                            <li><strong>Hipercard:</strong> 6062 8200 0000 0000</li>
+                            <li><strong>Diners Club:</strong> 3012 3456 7890 12</li>
+                        </ul>
+                        <p><small>* Estes números são apenas para fins de teste e desenvolvimento.</small></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Validador de Cartão | Desenvolvido com ❤️</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
