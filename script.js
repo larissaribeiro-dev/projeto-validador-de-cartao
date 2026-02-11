@@ -110,7 +110,7 @@ function identificarBandeira(numero) {
     const numeroLimpo = numero.replace(/\s/g, '');
     if (numeroLimpo.length < 2) return null;
 
-    // Percorre o objeto CARD_PATTERNS. A ordem no objeto importa!
+    // Percorre o objeto CARD_PATTERNS
     for (const [chave, regex] of Object.entries(CARD_PATTERNS)) {
         if (regex.test(numeroLimpo)) {
             return chave;

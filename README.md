@@ -5,8 +5,6 @@
 
 Um projeto moderno e educativo que utiliza **Expressões Regulares (Regex)** de alta precisão e o **Algoritmo de Luhn** para validar números de cartão de crédito. A aplicação foca na rapidez e segurança, operando 100% no lado do usuário.
 
-
-
 ## 🚀 Funcionalidades
 
 * 🔍 **Detecção de Bandeiras**: Identifica Visa, Mastercard, Amex, Elo, Hipercard, Diners, Discover, JCB e muito mais.
@@ -21,8 +19,6 @@ Um projeto moderno e educativo que utiliza **Expressões Regulares (Regex)** de 
 
 ### O Algoritmo de Luhn
 O coração da validação matemática. Ele funciona através de uma soma de verificação para evitar erros de digitação acidentais.
-
-
 
 **Passo a passo implementado:**
 1.  Da direita para a esquerda, dobra-se o valor de cada segundo dígito.
@@ -39,14 +35,6 @@ O motor lógico do projeto utiliza um objeto de padrões altamente detalhado par
 * **Hipercard**: Detecção precisa do padrão exclusivo `606282`.
 * **Amex**: Reconhecimento do padrão de 15 dígitos iniciado por 34 ou 37.
 * **Diners Club**: Prefixos 300-305, 36 ou 38.
-
----
-
-## 🎨 Interface e UX
-
-* **Botão de Tema**: Um toggle flutuante que altera as variáveis CSS do projeto e possui uma animação de salto suave (bounce) ao passar o mouse.
-* **Feedback Visual**: O campo de input exibe o ícone da bandeira em tempo real e muda de cor para indicar erros.
-* **Máscara Automática**: O input aplica espaços automaticamente para melhorar a legibilidade do número.
 
 ---
 
@@ -67,13 +55,6 @@ projeto-validador-cartao/
 3. Abra `index.html` com um navegador moderno
 4. Comece a validar cartões!
 
-## 🤝 Contribuindo
-
-Este é um projeto educacional. Sugestões e melhorias são bem-vindas!
-
-## 📝 Licença
-
-Projeto desenvolvido para fins educacionais na plataforma DIO (Digital Innovation One).
 
 ## 👨‍💻 Autor
 
