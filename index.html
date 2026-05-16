@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +10,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="logo.ico">
 </head>
 <body>
-    <button id="themeToggle" class="theme-toggle" data-icon="🌙"></button>
+    <button id="themeToggle" class="theme-toggle" data-icon="☀️" aria-label="Alternar tema"></button>
+
     <div class="container">
         <header>
-            <h1>Validador de Cartão de Crédito</h1>
-            <p>Identifique a bandeira e valide seu cartão</p>
+            <span class="header-label">Segurança Financeira</span>
+            <h1>Validador de Cartão</h1>
+            <p>Identifique bandeiras e verifique a integridade via algoritmo de Luhn</p>
         </header>
 
         <main>
@@ -34,6 +36,7 @@
                                 placeholder="0000 0000 0000 0000"
                                 maxlength="23"
                                 inputmode="numeric"
+                                autocomplete="off"
                                 required
                             >
                             <span id="bandeira" class="bandeira-logo"></span>
@@ -53,61 +56,57 @@
             </section>
 
             <section class="info-section">
-                <h2>Sobre a Validação</h2>
+                <h2>Documentação</h2>
                 <div class="info-grid">
                     <div class="info-card">
                         <h3>Bandeiras Suportadas</h3>
-                        <p>O validador reconhece as seguintes bandeiras baseando-se nos padrões internacionais de IIN:</p>
+                        <p>Reconhecimento via padrões internacionais de IIN (Issuer Identification Number).</p>
                         <ul class="info-list">
-                            <li><strong>Visa:</strong> Prefixo 4 (inclui Electron com 4026, 4405, etc).</li>
-                            <li><strong>Mastercard:</strong> Séries 51-55 ou 2221-2720.</li>
-                            <li><strong>Elo:</strong> Prefixos 4011, 4389, 4514, 5041, 5067, 5090 ou 6362-6363.</li>
-                            <li><strong>American Express:</strong> Começa com 34 ou 37.</li>
-                            <li><strong>Hipercard:</strong> Padrão exclusivo 606282.</li>
-                            <li><strong>Diners Club:</strong> Prefixos 300-305, 36 ou 38.</li>
-                            <li><strong>Outras:</strong> Discover, JCB, Maestro, Solo, Switch e Laser.</li>
+                            <li><strong>Visa:</strong> Prefixo 4 (inclui Electron)</li>
+                            <li><strong>Mastercard:</strong> Séries 51–55 ou 2221–2720</li>
+                            <li><strong>Elo:</strong> BINs 4011, 4389, 5041, 5067, 6362–6363</li>
+                            <li><strong>Amex:</strong> Começa com 34 ou 37 (15 dígitos)</li>
+                            <li><strong>Hipercard:</strong> Padrão exclusivo 606282</li>
+                            <li><strong>Diners Club:</strong> Prefixos 300–305, 36 ou 38</li>
+                            <li><strong>Outras:</strong> Discover, JCB, Maestro, Solo, Switch, Laser</li>
                         </ul>
                     </div>
 
                     <div class="info-card">
-                        <h3>Identificação por Prefixo</h3>
-                        <p>O sistema identifica a bandeira analisando os dígitos iniciais (IIN - Issuer Identification Number):</p>
+                        <h3>Algoritmo de Luhn</h3>
+                        <p>Módulo 10 — soma de verificação para detectar erros de digitação acidentais.</p>
                         <ul class="info-list">
-                            <li><strong>Visa:</strong> Prefixo 4.</li>
-                            <li><strong>Mastercard:</strong> 51-55 ou série 2221-2720.</li>
-                            <li><strong>Elo:</strong> Prefixos como 4011, 4389, 5041, 5067, 6362 ou 6363.</li>
-                            <li><strong>Amex:</strong> 34 ou 37 (15 dígitos).</li>
-                            <li><strong>Hipercard:</strong> Prefixo 606282.</li>
-                            <li><strong>Maestro:</strong> 5018, 5020, 6304, entre outros.</li>
-                            <li><strong>Diners:</strong> 300-305, 36 ou 38.</li>
+                            <li>Percorre os dígitos da direita para esquerda</li>
+                            <li>Dobra o valor de cada segundo dígito</li>
+                            <li>Se resultado &gt; 9, soma os algarismos</li>
+                            <li>Válido se o total é múltiplo de 10</li>
                         </ul>
                     </div>
 
                     <div class="info-card">
-                        <h3>Segurança</h3>
-                        <p>Esta aplicação funciona <strong>100% no navegador</strong>. Nenhum dado é enviado a servidores externos.</p>
-                        <p>Nunca compartilhe dados reais de cartão em ambientes não confiáveis.</p>
+                        <h3>Privacidade</h3>
+                        <p>Esta aplicação funciona <strong>100% no navegador</strong>. Nenhum dado é transmitido ou armazenado em servidores externos.</p>
+                        <p>Nunca insira dados reais de cartão em ambientes não confiáveis.</p>
                     </div>
 
                     <div class="info-card">
-                        <h3>Números para Teste</h3>
-                        <p>Utilize estes números fictícios para testar a detecção de bandeiras e o algoritmo:</p>
+                        <h3>Números de Teste</h3>
                         <ul class="info-list">
                             <li><strong>Visa:</strong> 4111 1111 1111 1111</li>
                             <li><strong>Mastercard:</strong> 5555 5555 5555 4444</li>
-                            <li><strong>American Express:</strong> 3782 822463 10005</li>
+                            <li><strong>Amex:</strong> 3782 822463 10005</li>
                             <li><strong>Elo:</strong> 5067 0875 9312 9444</li>
                             <li><strong>Hipercard:</strong> 6062 8222 8384 7399</li>
-                            <li><strong>Diners Club:</strong> 3013 818178 5264</li>
+                            <li><strong>Diners:</strong> 3013 818178 5264</li>
                         </ul>
-                        <p><small>* Estes números são apenas para fins de teste e desenvolvimento.</small></p>
+                        <p><small>* Apenas para fins de teste e desenvolvimento.</small></p>
                     </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2026 Validador de Cartão | Desenvolvido com ❤️</p>
+            <p>&copy; 2026 Validador de Cartão &mdash; Desenvolvido com ❤️</p>
         </footer>
     </div>
 
